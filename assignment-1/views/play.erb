@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Play</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+  </head>
+
+  <body>
+        <div class="play container">
+
+            <h1>Gambling Site</h1>
+
+          <div class="columns">
+            <div class="left-column">
+                <p>place your bet on dice number (1-6) <br>to win twice your money!</p>
+
+                <form action="/play" method="post">
+
+                    <label>bet money</label>
+                    <input type="number" name="bet" required field><br>
+
+                    <label>on</label>
+                    <input type="number" name="dicenum"  min="1" max="6" required field><br>
+
+                    <button type="submit">Bet</button>
+
+                </form>
+            <% if session[:won] %>
+              <p>Congratulations! You won!</p>
+            <% else %>
+              <p>You lost.</p>
+            <% end %>
+
+            </div>
+
+            <div class="right-column">
+            <%# Make sure to change input tag to the corresponding tag %>
+                <p id="t-title">Current Session</p>
+                  <div class="r-inline">
+                    <p>Total Win:</p>
+                    <p>$<%= @current_win %></p>
+                  </div>
+
+                  <div class="r-inline">
+                    <p>Total Loss:</p>
+                    <p>$<%= @current_loss %></p>
+                  </div>
+
+                  <div class="r-inline">
+                    <p>Total Profit:</p>
+                    <p>$<%= @current_profit %></p>
+                  </div>
+
+            </div>
+
+          </div>
+
+          <div class="bottom">
+          <hr>
+              <%# Make sure to change input tag to the corresponding tag %>
+            <p id="t-title">Total Account Results</p>
+            <div class="bottom-row">
+                  <div class="b-inline">
+                    <p>Total Win:</p>
+                    <p>$<%= @accountwin %></p>
+                  </div>
+
+                  <div class="b-inline">
+                    <p>Total Loss:</p>
+                    <p>$<%= @accountloss %></p>
+                  </div>
+
+                  <div class="b-inline">
+                    <p>Total Profit:</p>
+                    <p>$<%= @accountprofit %></p>
+                  </div>
+
+            </div>
+
+            <form method="POST" action='/logout'>
+              <input type='submit' value='Logout' id='logout'></input>
+            </form>
+
+          </div>
+            
+        </div>
+
+  </body>
+</html>

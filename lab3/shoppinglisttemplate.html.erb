@@ -1,0 +1,14 @@
+<html> 
+  <head> 
+  </head> 
+  <body> 
+    <h1> Shopping List for <%= @date.strftime('%A, %d, %B, %Y')%> </h1>
+    <p> You need to buy </p> 
+    <ul> 
+      <% for item in @items %> 
+        <li> <%= item %> </li> 
+      <% end %> 
+    </ul> 
+  </body> 
+</html>
+

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Menu</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+  </head>
+
+
+  <body>
+        <h1>Bank Services</h1>
+    <ul>
+    <li><a href="/open_account">Open Account</a></li>
+    <li><a href="/deposit">Deposit</a></li>
+    <li><a href="/withdraw">Withdraw</a></li>
+    </ul>
+    <% if session[:error] %>
+    <p><%= session[:error] %></p>
+    <% session[:error] = nil %>
+    <% end %>
+    <% if settings.name != '' && settings.account_id != '' %>
+    <h2>Account Info:</h2>
+    <p>Name: <%= settings.name %></p>
+    <p>ID: <%= settings.account_id %></p>
+    <% end %>
+    <% if settings.balance > 0 %>
+    <h2>Current Balance:</h2>
+    <p><%= settings.balance %></p>
+    <% end %>
+
+  </body>
+</html>
+

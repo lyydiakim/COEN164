@@ -1,0 +1,17 @@
+<html>
+     <body>
+        <h1>
+            <%= @title %> <%= @isbn %> 
+        </h1>
+        <p> 
+            by <%= @author %> 
+        </p>
+        <ul>
+            <%for description in @descriptionList %>
+                <li> <%= description %> </li>
+            <% end %>
+        </ul>
+        <p> Only <%= @price %>!!! </p>
+    </body>
+</html>
+
